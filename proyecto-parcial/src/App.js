@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import database from "./database.json"
+import Tarjeta from './components/Tarjeta'
+import Header from './components/Header'
+
+
+function App (){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <div className="todo">
+
+
+      <Header/>
+
+
+      <div className="caja">
+          {database.map(function(unPersonaje, idx){
+            return (<Tarjeta 
+                    personaje = {unPersonaje} 
+                    key={idx}
+                     />)
+            }
+          )}
+      </div> 
+
+      <footer>
+        <h1>Created by: Franco Mendelsohn</h1>
+      </footer>
+
+
+    </div>     
   );
+
 }
 
 export default App;
+
