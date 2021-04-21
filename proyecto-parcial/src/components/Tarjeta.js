@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
 
-class Tarjeta extends Component {
+export default class Tarjeta extends Component {
 
 	constructor(props){
 		super(props);
@@ -54,7 +54,7 @@ class Tarjeta extends Component {
 	}
 	}
 
-	export default Tarjeta;
+
 /*			<div
 			
 			>

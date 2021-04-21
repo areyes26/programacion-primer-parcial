@@ -1,19 +1,29 @@
-
 import { Component } from 'react';
-import database from "./database.json"
 import Tarjeta from './components/Tarjeta'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
-console.log(database)
 
-class App extends Component {
+
+export default class App extends Component {
 
   constructor(){
 		super();
 		this.state={
-      item : database
+      item : []
 		}
 	};
+
+
+  componentDidMount(){
+    fetch("https://randomuser.me/api/?results=20")
+    .then(result => result.json())
+    .then(data => {
+      this.setState({
+        item : data.results
+      })
+      console.log(data.results);})
+  }
 
 	borrarTarjeta (idTarjeta){
 		let resultados = this.state.item.filter((item)=>{
@@ -41,9 +51,7 @@ class App extends Component {
             )}
         </div> 
   
-        <footer>
-          <h1>Created by: Franco Mendelsohn</h1>
-        </footer>
+        <Footer/>
   
   
       </div>     
@@ -53,5 +61,5 @@ class App extends Component {
 
 }
 
-export default App;
+
 
