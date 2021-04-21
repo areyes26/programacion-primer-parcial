@@ -11,9 +11,18 @@ class App extends Component {
   constructor(){
 		super();
 		this.state={
-      item:database
+      item : database
 		}
 	};
+
+	borrarTarjeta (idTarjeta){
+		let resultados = this.state.item.filter((item)=>{
+		  return item.login.uuid !== idTarjeta
+		})
+		this.setState({item:resultados})
+		console.log("Borramos la tarjeta con el ID " + idTarjeta);
+		
+	  }
 
   render (){
     return (
@@ -27,7 +36,7 @@ class App extends Component {
   
         <div className="caja">
         {this.state.item.map((unPersonaje)=>{
-              return (<Tarjeta personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid}/>)
+              return (<Tarjeta  onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid}/>)
               }
             )}
         </div> 

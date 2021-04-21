@@ -9,6 +9,7 @@ class Tarjeta extends Component {
 		}
 	};
 
+
 	render(){
 		return(
 			<div
@@ -23,7 +24,10 @@ class Tarjeta extends Component {
 				<h3>{this.props.personaje.email}</h3>
 				<button>Agregar</button>
 				<br/>
-				<button>Eliminar</button>
+				<button
+				onClick={()=>{this.props.onDelete(this.props.id)}}
+				>Eliminar
+				</button>
 				</a>
 			</div>
 		);
