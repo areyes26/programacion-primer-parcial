@@ -58,7 +58,7 @@ class Tarjeta extends Component {
 /*			<div
 			
 			>
-				<a href="http://google.com">
+				<a href="/components/Infotarjeta.js">
 				<img src={this.props.personaje.picture.large} alt=""/>
 				<h2> {this.props.personaje.name.first} {this.props.personaje.name.last} </h2>
 				 
