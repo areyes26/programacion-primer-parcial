@@ -1,0 +1,56 @@
+body{
+    margin: 0%;
+
+}
+.colorAzul{
+    color: blue;
+}
+header, footer {
+    background-color: azure;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    
+}
+header div h1, footer h1{
+    height: 100%;
+    margin: 0%;
+    
+}
+#root{
+    margin-top: 4%
+}
+ .tarjeta{
+    border:1px solid black;
+    width: 28%; 
+    display: block;
+    margin-bottom: 2%;
+    text-align: center;
+    margin-left: 3%;
+    
+ }
+ .tarjeta div {
+     width: 75%;
+     margin-left: 12.5%;
+     border:1px solid black;
+     margin-bottom: 2%;
+ }
+ .tarjeta h2 {
+     margin-top: 0.1%;
+     margin-bottom: 1%;
+     color: royalblue;
+ }
+ .tarjeta h3{
+     margin-top: 0.2%;
+     margin-bottom: .8%;
+     font-size: inherit;
+ }
+ .tarjeta img{
+     width: 75%;
+     margin-top: 3%;
+ }
+ .caja{
+     justify-content: space-around  ;
+     display: flex;
+     flex-wrap: wrap;
+ }
