@@ -4,13 +4,14 @@ import database from "./database.json"
 import Tarjeta from './components/Tarjeta'
 import Header from './components/Header'
 
+console.log(database)
 
 class App extends Component {
 
   constructor(){
 		super();
 		this.state={
-      
+      item:database
 		}
 	};
 
@@ -21,16 +22,12 @@ class App extends Component {
 
       <div className="todo">
   
-  
         <Header/>
   
   
         <div className="caja">
-            {database.map(function(unPersonaje, idx){
-              return (<Tarjeta 
-                      personaje = {unPersonaje} 
-                      key={idx}
-                       />)
+        {this.state.item.map((unPersonaje)=>{
+              return (<Tarjeta personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid}/>)
               }
             )}
         </div> 
