@@ -18,16 +18,16 @@ class Tarjeta extends Component {
 
 			<img src={this.props.personaje.picture.large} alt=""/>
 			<h3>{this.props.personaje.name.first} {this.props.personaje.name.last}</h3>
-			<h6>{this.props.personaje.location.country}</h6>
-			<h6>{/*this.props.personaje.dob.date*/} ({this.props.personaje.dob.age} años)</h6> 
+			<h6>{this.props.personaje.dob.date} </h6> 
+			<h6> ({this.props.personaje.dob.age} años)</h6> 
 			<h6>{this.props.personaje.email}</h6>
-			<p>User interface designer and <br/> front-end developer</p>
+			{/* <p>User interface designer and <br/> front-end developer</p> */}
 			<div class="buttons">
-				<button 
+				{/* <button 
 				class="primary"
 				>
 					Agregar
-				</button>
+				</button> */}
 				<button 
 				class="primary ghost"
 				onClick={()=>{this.props.onDelete(this.props.id)}}
@@ -35,6 +35,7 @@ class Tarjeta extends Component {
 					Eliminar
 				</button>
 			</div>
+			
 			{/* <div class="skills">
 				<h6>Skills</h6>
 				<ul>
@@ -48,6 +49,7 @@ class Tarjeta extends Component {
 				</ul>
 			</div> */}
 		</div>
+		
 		);
 	}
 	}

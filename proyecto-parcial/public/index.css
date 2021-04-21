@@ -97,6 +97,8 @@ p {
 	width: 350px;
 	max-width: 100%;
 	text-align: center;
+    padding-bottom: 30px;
+    margin-bottom: 2%;
 }
 
 .card-container .pro {
