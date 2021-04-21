@@ -12,9 +12,49 @@ class Tarjeta extends Component {
 
 	render(){
 		return(
-			<div
-			className="tarjeta"
-			id={this.props.id}
+			<div class="card-container"
+			id={this.props.id}>
+			{/* <span class="pro">PRO</span> */}
+
+			<img src={this.props.personaje.picture.large} alt=""/>
+			<h3>{this.props.personaje.name.first} {this.props.personaje.name.last}</h3>
+			<h6>{this.props.personaje.location.country}</h6>
+			<h6>{/*this.props.personaje.dob.date*/} ({this.props.personaje.dob.age} años)</h6> 
+			<h6>{this.props.personaje.email}</h6>
+			<p>User interface designer and <br/> front-end developer</p>
+			<div class="buttons">
+				<button 
+				class="primary"
+				>
+					Agregar
+				</button>
+				<button 
+				class="primary ghost"
+				onClick={()=>{this.props.onDelete(this.props.id)}}
+				>
+					Eliminar
+				</button>
+			</div>
+			{/* <div class="skills">
+				<h6>Skills</h6>
+				<ul>
+					<li>UI / UX</li>
+					<li>Front End Development</li>
+					<li>HTML</li>
+					<li>CSS</li>
+					<li>JavaScript</li>
+					<li>React</li>
+					<li>Node</li>
+				</ul>
+			</div> */}
+		</div>
+		);
+	}
+	}
+
+	export default Tarjeta;
+/*			<div
+			
 			>
 				<a href="http://google.com">
 				<img src={this.props.personaje.picture.large} alt=""/>
@@ -29,12 +69,6 @@ class Tarjeta extends Component {
 				>Eliminar
 				</button>
 				</a>
-			</div>
-		);
-	}
-	}
-
-	export default Tarjeta;
-
+			</div> */
 
 
