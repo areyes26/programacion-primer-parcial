@@ -7,13 +7,29 @@ import Footer from './components/Footer'
 
 export default class App extends Component {
 
-  constructor(){
-		super();
+  constructor(props){
+		super(props);
 		this.state={
-      item : []
+      item : [],
+      widthoriginal: this.props.widthorigina ,
+			width: "52%",
+			widthsolo: []
+     
 		}
 	};
 
+  Cambiarwidth = (widthnuevo) => {
+    if(this.state.widthsolo === this.state.widthoriginal)
+		this.setState({
+			widthsolo: widthnuevo
+		})
+		else{
+			this.setState({
+				widthsolo: this.state.widthoriginal
+			})
+		}
+			}
+		
 
   componentDidMount(){
     fetch("https://randomuser.me/api/?results=20")
@@ -46,6 +62,8 @@ export default class App extends Component {
 		
 	  }
 
+    
+
   render (){
     return (
 
@@ -58,10 +76,15 @@ export default class App extends Component {
       <button onClick = { this.agregarTarjeta.bind(this)}>
         AGREGAR TARJETA
       </button>
-  
-        <div className="caja">
+
+      <button onClick = {() => this.Cambiarwidth("30%") } style= {{ 
+        width: this.state.widthsolo }}>
+        CAMBIAR DISPOSICION
+      </button>
+      
+        <div className="caja"  >
         {this.state.item.map((unPersonaje)=>{
-              return (<Tarjeta  onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid}/>)
+              return (<Tarjeta  id={this.props.id} onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={"28%"}/>)
               }
             )}
         </div> 

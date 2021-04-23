@@ -5,11 +5,11 @@ export default class Tarjeta extends Component {
 	constructor(props){
 		super(props);
 		this.state={
-			
+		
 		}
 	};
 		
-
+	
 
 	
 
@@ -29,7 +29,11 @@ export default class Tarjeta extends Component {
 	render(){
 		return(
 			<div class="card-container"
-			id={this.props.id}>
+			id={this.props.id}
+			
+			>
+
+
 			<span class="pro"
 			onClick={()=>{this.props.onDelete(this.props.id)}}
 			>X</span>
