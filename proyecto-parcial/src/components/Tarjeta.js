@@ -9,14 +9,22 @@ export default class Tarjeta extends Component {
 		}
 	};
 		
-	// cambiarColor=(colorNuevo)=>{
-		
-	// 	if(this.state.color === this.state.colorOriginal)
-	// 		this.setState({color: colorNuevo})
-	// 	else
-	// 		this.setState({color: this.state.colorOriginal})
-		
-	// 	};
+
+
+	
+
+	componentDidMount(){
+		console.log(">>> se creo la tarjeta de " + this.props.personaje.name.first + " " + this.props.personaje.name.last );
+	}
+
+	componentDidUpdate(){
+		console.log("=== se actualizo tarjeta de " + this.props.personaje.name.first + " " + this.props.personaje.name.last );
+	}
+
+	componentWillUnmount(){
+		console.log("<<< se borro la tarjeta de " + this.props.personaje.name.first + " " + this.props.personaje.name.last );
+	}
+
 
 	render(){
 		return(
@@ -24,7 +32,6 @@ export default class Tarjeta extends Component {
 			id={this.props.id}>
 			<span class="pro"
 			onClick={()=>{this.props.onDelete(this.props.id)}}
-			onMouseEnter={()=>{this.cambiarColor("red")}}
 			>X</span>
 
 			<img src={this.props.personaje.picture.large} alt=""/>

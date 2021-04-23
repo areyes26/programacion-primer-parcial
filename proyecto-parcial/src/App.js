@@ -25,12 +25,24 @@ export default class App extends Component {
       console.log(data.results);})
   }
 
+  agregarTarjeta(){
+    fetch("https://randomuser.me/api/?results=")
+    .then(result => result.json())
+    .then(data => {
+      this.state.item.push(data.results[0])
+      this.setState({
+        item : this.state.item
+      })
+    })
+  }
+
+
 	borrarTarjeta (idTarjeta){
 		let resultados = this.state.item.filter((item)=>{
 		  return item.login.uuid !== idTarjeta
 		})
 		this.setState({item:resultados})
-		console.log("Borramos la tarjeta con el ID " + idTarjeta);
+		// console.log("Borramos la tarjeta con el ID " + idTarjeta);
 		
 	  }
 
@@ -43,6 +55,9 @@ export default class App extends Component {
   
         <Header/>
   
+      <button onClick = { this.agregarTarjeta.bind(this)}>
+        AGREGAR TARJETA
+      </button>
   
         <div className="caja">
         {this.state.item.map((unPersonaje)=>{
