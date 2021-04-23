@@ -19,6 +19,7 @@ export default class App extends Component {
 	};
 
   Cambiarwidth = (widthnuevo) => {
+    
     if(this.state.widthsolo === this.state.widthoriginal)
 		this.setState({
 			widthsolo: widthnuevo
@@ -77,14 +78,15 @@ export default class App extends Component {
         AGREGAR TARJETA
       </button>
 
-      <button onClick = {() => this.Cambiarwidth("30%") } style= {{ 
-        width: this.state.widthsolo }}>
-        CAMBIAR DISPOSICION
-      </button>
+      <button >
+            CAMBIAR
+          </button>
       
-        <div className="caja"  >
+        <div className="caja" onClick = {() => this.Cambiarwidth("30%", "CENTER") } style= {{ 
+        width: this.state.widthsolo }} >
+          
         {this.state.item.map((unPersonaje)=>{
-              return (<Tarjeta  id={this.props.id} onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={"28%"}/>)
+              return (<Tarjeta  id={this.props.id} onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={"28%"} />)
               }
             )}
         </div> 

@@ -27,7 +27,7 @@ header div h1, footer h1{
     margin-bottom: 2%;
     text-align: center;
     margin-left: 3%;
-    
+	
  }
  .tarjeta div {
      width: 75%;
@@ -53,6 +53,8 @@ header div h1, footer h1{
      justify-content: space-around  ;
      display: flex;
      flex-wrap: wrap;
+	 margin-right: auto;
+	 margin-left: auto;
  }
  @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
