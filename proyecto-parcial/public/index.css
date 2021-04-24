@@ -53,6 +53,8 @@ header div h1, footer h1{
      justify-content: space-around  ;
      display: flex;
      flex-wrap: wrap;
+	 margin-left: auto;
+    margin-right: auto;
  }
  @import url('https://fonts.googleapis.com/css?family=Montserrat');
 

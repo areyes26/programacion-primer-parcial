@@ -78,11 +78,11 @@ export default class App extends Component {
         AGREGAR TARJETA
       </button>
 
-      <button >
-            CAMBIAR
+      <button onClick = {() => this.Cambiarwidth("30%", "CENTER") }>
+            CAMBIAR ORDEN
           </button>
       
-        <div className="caja" onClick = {() => this.Cambiarwidth("30%", "CENTER") } style= {{ 
+        <div className="caja"  style= {{ 
         width: this.state.widthsolo }} >
           
         {this.state.item.map((unPersonaje)=>{
