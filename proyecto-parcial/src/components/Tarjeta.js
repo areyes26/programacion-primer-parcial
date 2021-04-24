@@ -1,4 +1,5 @@
 import React , {Component} from 'react'
+import VerMas from './VerMas'
 
 class Tarjeta extends Component {
 
@@ -44,7 +45,7 @@ class Tarjeta extends Component {
 			<h6> ({this.props.personaje.dob.age} años)</h6> 
 			<h6>{this.props.personaje.email}</h6>
 			<div class="buttons">
-
+			<VerMas/>
 				{/* <button 
 				class="primary ghost"
 				onClick={()=>{this.props.onDelete(this.props.id)}}
