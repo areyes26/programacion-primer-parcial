@@ -5,12 +5,18 @@ import Footer from './components/Footer'
 
 
 
+
 export default class App extends Component {
 
-  constructor(){
-		super();
+  constructor(props){
+		super(props);
 		this.state={
-      item : []
+      item : [],
+      widthoriginal: this.props.widthorigina,
+      width: "52%",
+      widthsolo: [],
+      value: "",
+      copyValue: "",
 		}
 	};
 
@@ -61,13 +67,20 @@ export default class App extends Component {
 
   render (){
     return (
-
+        
 
 
       <div className="todo">
   
         <Header/>
-  
+      
+        {/* <div >
+      <div>Valor ingresado: {this.state.value}</div>
+      <input onChange={(event) => this.setState({value: event.target.value})} > </input>
+      <button Onclick={() => this.setState({copyValue: this.state.value})} ></button>
+    </div>
+    */}
+
       <button onClick = { this.agregarTarjeta.bind(this)}>
         AGREGAR TARJETA
       </button>
