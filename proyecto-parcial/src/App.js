@@ -14,7 +14,6 @@ export default class App extends Component {
 		}
 	};
 
-<<<<<<< HEAD
   Cambiarwidth = (widthnuevo) => {
     
     if(this.state.widthsolo === this.state.widthoriginal)
@@ -28,8 +27,6 @@ export default class App extends Component {
 		}
 			}
 		
-=======
->>>>>>> parent of 4f73aa3 (Cambiar disposicion)
 
   componentDidMount(){
     fetch("https://randomuser.me/api/?results=20")
@@ -74,7 +71,6 @@ export default class App extends Component {
       <button onClick = { this.agregarTarjeta.bind(this)}>
         AGREGAR TARJETA
       </button>
-<<<<<<< HEAD
 
       <button onClick = {() => this.Cambiarwidth("30%", "CENTER") }>
             CAMBIAR ORDEN
@@ -85,12 +81,6 @@ export default class App extends Component {
           
         {this.state.item.map((unPersonaje)=>{
               return (<Tarjeta  id={this.props.id} onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={"28%"} />)
-=======
-  
-        <div className="caja">
-        {this.state.item.map((unPersonaje)=>{
-              return (<Tarjeta  onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid}/>)
->>>>>>> parent of 4f73aa3 (Cambiar disposicion)
               }
             )}
         </div> 
