@@ -95,9 +95,7 @@ export default class App extends Component {
             )}
         </div> 
   
-        <footer>
-          <h1>Created by: ArielReyes, Franco Mendelsohn & Nicolas Cappone </h1>
-        </footer>
+       <Footer/>
 
   
   
