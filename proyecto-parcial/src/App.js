@@ -166,13 +166,6 @@ export default class App extends Component {
 
 
 
-        {/* <div >
-      <div>Valor ingresado: {this.state.value}</div>
-      <input onChange={(event) => this.setState({value: event.target.value})} > </input>
-      <button Onclick={() => this.setState({copyValue: this.state.value})} ></button>
-    </div>
-    */}
-
       <button onClick = { this.agregarTarjeta.bind(this)}>
         AGREGAR TARJETA
       </button>
