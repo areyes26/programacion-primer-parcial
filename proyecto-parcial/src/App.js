@@ -144,6 +144,7 @@ export default class App extends Component {
       <div className="todo">
                   
         <Header/>
+<<<<<<< Updated upstream
         <div className="filtros-div">
 
 <h2 className="filtros-title">Filtros</h2>
@@ -166,6 +167,8 @@ export default class App extends Component {
 
 
 
+=======
+>>>>>>> Stashed changes
       <button onClick = { this.agregarTarjeta.bind(this)}>
         AGREGAR TARJETA
       </button>
