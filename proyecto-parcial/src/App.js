@@ -152,33 +152,28 @@ export default class App extends Component {
 
   <h2 className="filtros-title">Filtros</h2>
 
-<<<<<<< HEAD
-<label style={{fontWeight:"600", color:"424242"}} className="Filtrarpor">Filtrar por</label>
+<label class="primary ghost" style={{fontWeight:"600", color:"424242"}} className="Filtrarpor">Filtrar por</label>
 <select className="select"   id="selectDataFiltro">
-=======
-  <label style={{fontWeight:"600", color:"424242"}}>Filtrar por</label>
-  <select id="selectDataFiltro">
->>>>>>> main
   <option>Nombre</option>
   <option>Edad</option>
   <option>Sexo</option>
   </select>
 
-  <input className="inputDataFiltro" name="filtroData" id="inputDataFiltro"/>
+  <input class="primary ghost"className="inputDataFiltro" name="filtroData" id="inputDataFiltro"/>
 
   <div className="div-botones">
-  <button className="boton" onClick={this.filtrarTarjetas.bind(this)}>Filtrar</button>
-  <button className="boton-secundario boton"onClick={this.componentDidMount.bind(this)}>Reset</button>
+  <button class="primary ghost" onClick={this.filtrarTarjetas.bind(this)}>Filtrar</button>
+  <button  class="primary ghost" onClick={this.componentDidMount.bind(this)}>Reset</button>
   </div>
   </div>
 
-      <button className="agregar"  onClick = { this.agregarTarjeta.bind(this)}>
+      <button class="primary ghost" id="botonesS" onClick = { this.agregarTarjeta.bind(this)}>
         AGREGAR TARJETA
       </button>
    
 
 
-      <button className="cambiar"  onClick = {() => this.Cambiarwidth(this.state.widthalt) }>
+      <button class="primary ghost" id="botonesS"  onClick = {() => this.Cambiarwidth(this.state.widthalt) }>
             CAMBIAR ORDEN
           </button>
        
@@ -189,11 +184,7 @@ export default class App extends Component {
         {this.state.item.map((unPersonaje)=>{
               return (<Tarjeta nombre={unPersonaje.name.first} apellido={unPersonaje.name.last} mail={unPersonaje.email} 
                 fecha={unPersonaje.dob.date} edad={unPersonaje.dob.age} foto={unPersonaje.picture.large} 
-<<<<<<< HEAD
                 id={unPersonaje.login.uuid} id={this.props.id} onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={{width: "10%"}}  />)
-=======
-                 onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={"28%"} />)
->>>>>>> main
               }
             )}
         </div> 
