@@ -8,13 +8,14 @@ import Footer from './components/Footer'
 
 export default class App extends Component {
 
-  constructor(props){
-		super(props);
+  constructor(){
+		super();
 		this.state={
       item : [],
-      widthoriginal: this.props.widthorigina,
-      width: "52%",
-      widthsolo: [],
+      widthoriginal: "100%",
+      width: "100%",
+      widthalt: "30%" ,
+
       value: "",
       copyValue: "",
 
@@ -24,6 +25,25 @@ export default class App extends Component {
 
 		}
 	};
+
+
+  Cambiarwidth = (widthnuevo) => {
+    
+    if(this.state.width === this.state.widthoriginal)
+		this.setState({
+			width: widthnuevo
+		})
+		else{
+			this.setState({
+				width: this.state.widthoriginal
+			})
+		}
+			}
+
+
+
+
+
 
   filtrarTarjetas(){
     let dataAfiltrar = document.getElementById("inputDataFiltro").value
@@ -67,23 +87,6 @@ export default class App extends Component {
 
 
 
-
-
-
-
-
-  Cambiarwidth = (widthnuevo) => {
-    
-    if(this.state.widthsolo === this.state.widthoriginal)
-		this.setState({
-			widthsolo: widthnuevo
-		})
-		else{
-			this.setState({
-				widthsolo: this.state.widthoriginal
-			})
-		}
-			}
 		
 
   componentDidMount(){
@@ -144,50 +147,53 @@ export default class App extends Component {
       <div className="todo">
                   
         <Header/>
+
         <div className="filtros-div">
 
-<h2 className="filtros-title">Filtros</h2>
+  <h2 className="filtros-title">Filtros</h2>
 
-<label style={{fontWeight:"600", color:"424242"}}>Filtrar por</label>
-<select id="selectDataFiltro">
+<<<<<<< HEAD
+<label style={{fontWeight:"600", color:"424242"}} className="Filtrarpor">Filtrar por</label>
+<select className="select"   id="selectDataFiltro">
+=======
+  <label style={{fontWeight:"600", color:"424242"}}>Filtrar por</label>
+  <select id="selectDataFiltro">
+>>>>>>> main
   <option>Nombre</option>
   <option>Edad</option>
   <option>Sexo</option>
-</select>
+  </select>
 
-<input className="inputDataFiltro" name="filtroData" id="inputDataFiltro"/>
+  <input className="inputDataFiltro" name="filtroData" id="inputDataFiltro"/>
 
-<div className="div-botones">
+  <div className="div-botones">
   <button className="boton" onClick={this.filtrarTarjetas.bind(this)}>Filtrar</button>
   <button className="boton-secundario boton"onClick={this.componentDidMount.bind(this)}>Reset</button>
-</div>
-</div>
+  </div>
+  </div>
 
-
-
-
-        {/* <div >
-      <div>Valor ingresado: {this.state.value}</div>
-      <input onChange={(event) => this.setState({value: event.target.value})} > </input>
-      <button Onclick={() => this.setState({copyValue: this.state.value})} ></button>
-    </div>
-    */}
-
-      <button onClick = { this.agregarTarjeta.bind(this)}>
+      <button className="agregar"  onClick = { this.agregarTarjeta.bind(this)}>
         AGREGAR TARJETA
       </button>
+   
 
-      <button onClick = {() => this.Cambiarwidth("30%", "CENTER") }>
+
+      <button className="cambiar"  onClick = {() => this.Cambiarwidth(this.state.widthalt) }>
             CAMBIAR ORDEN
           </button>
-      
-        <div className="caja"  style= {{ 
-        width: this.state.widthsolo }} >
+       
+
+
+        <div className="caja"  style= {{width: this.state.width }} >
           
         {this.state.item.map((unPersonaje)=>{
               return (<Tarjeta nombre={unPersonaje.name.first} apellido={unPersonaje.name.last} mail={unPersonaje.email} 
                 fecha={unPersonaje.dob.date} edad={unPersonaje.dob.age} foto={unPersonaje.picture.large} 
-                id={unPersonaje.login.uuid} id={this.props.id} onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={"28%"} />)
+<<<<<<< HEAD
+                id={unPersonaje.login.uuid} id={this.props.id} onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={{width: "10%"}}  />)
+=======
+                 onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={"28%"} />)
+>>>>>>> main
               }
             )}
         </div> 
