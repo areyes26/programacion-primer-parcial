@@ -29,8 +29,7 @@ class Tarjeta extends Component {
 
 	render(){
 		return(
-			<div class="card-container"
-			id={this.props.id}>
+			<div class="card-container">
 			<span class="pro"
 			onClick={()=>{this.props.onDelete(this.props.id)}}
 			>X</span>

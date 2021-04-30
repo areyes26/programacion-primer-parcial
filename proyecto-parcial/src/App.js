@@ -146,22 +146,22 @@ export default class App extends Component {
         <Header/>
         <div className="filtros-div">
 
-<h2 className="filtros-title">Filtros</h2>
+  <h2 className="filtros-title">Filtros</h2>
 
-<label style={{fontWeight:"600", color:"424242"}}>Filtrar por</label>
-<select id="selectDataFiltro">
+  <label style={{fontWeight:"600", color:"424242"}}>Filtrar por</label>
+  <select id="selectDataFiltro">
   <option>Nombre</option>
   <option>Edad</option>
   <option>Sexo</option>
-</select>
+  </select>
 
-<input className="inputDataFiltro" name="filtroData" id="inputDataFiltro"/>
+  <input className="inputDataFiltro" name="filtroData" id="inputDataFiltro"/>
 
-<div className="div-botones">
+  <div className="div-botones">
   <button className="boton" onClick={this.filtrarTarjetas.bind(this)}>Filtrar</button>
   <button className="boton-secundario boton"onClick={this.componentDidMount.bind(this)}>Reset</button>
-</div>
-</div>
+  </div>
+  </div>
 
 
 
@@ -180,7 +180,7 @@ export default class App extends Component {
         {this.state.item.map((unPersonaje)=>{
               return (<Tarjeta nombre={unPersonaje.name.first} apellido={unPersonaje.name.last} mail={unPersonaje.email} 
                 fecha={unPersonaje.dob.date} edad={unPersonaje.dob.age} foto={unPersonaje.picture.large} 
-                id={unPersonaje.login.uuid} id={this.props.id} onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={"28%"} />)
+                 onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={"28%"} />)
               }
             )}
         </div> 
