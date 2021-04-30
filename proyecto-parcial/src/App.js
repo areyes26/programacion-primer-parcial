@@ -17,8 +17,60 @@ export default class App extends Component {
       widthsolo: [],
       value: "",
       copyValue: "",
+
+      error: null,
+      isLoaded: false,
+      numero: "",
+
 		}
 	};
+
+  filtrarTarjetas(){
+    let dataAfiltrar = document.getElementById("inputDataFiltro").value
+    let campoAfiltrar = document.getElementById("selectDataFiltro").value
+
+    console.log(dataAfiltrar)
+    console.log(campoAfiltrar)
+
+
+    if (campoAfiltrar === "Edad"){
+      let resultado = this.state.item.filter( (item) => {
+        return item.dob.age == dataAfiltrar 
+      }) 
+      this.setState({item: resultado})
+    } else if (campoAfiltrar === "Nombre"){
+      let resultado = this.state.item.filter( (item) => {
+        return item.name.first.includes(dataAfiltrar)
+      })
+      this.setState({item: resultado})
+    } else if (campoAfiltrar === "Sexo"){
+      let resultado = this.state.item.filter( (item) => {
+        return item.gender === dataAfiltrar
+      })  
+      this.setState({items:resultado})
+    }
+  }
+
+
+  
+  abrirFormulario(){
+    var x = document.getElementById("formulario");
+     if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+      console.log(x.style.display)
+  }
+
+
+
+
+
+
+
+
+
 
   Cambiarwidth = (widthnuevo) => {
     
@@ -39,9 +91,19 @@ export default class App extends Component {
     .then(result => result.json())
     .then(data => {
       this.setState({
-        item : data.results
+        item : data.results,
+        isLoaded: true
       })
-      console.log(data.results);})
+      console.log(data.results);
+    },
+    (error) => {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+    
+    )
   }
 
   agregarTarjeta(){
@@ -66,14 +128,44 @@ export default class App extends Component {
 	  }
 
   render (){
+    const {error, isLoaded, items} = this.state;
+
+    if(error){
+      return <div> Error: {error.message}</div>;
+    } else {
+  
     return (
         
 
 
-      <div className="todo">
-  
-        <Header/>
+
       
+
+      <div className="todo">
+                  
+        <Header/>
+        <div className="filtros-div">
+
+<h2 className="filtros-title">Filtros</h2>
+
+<label style={{fontWeight:"600", color:"424242"}}>Filtrar por</label>
+<select id="selectDataFiltro">
+  <option>Nombre</option>
+  <option>Edad</option>
+  <option>Sexo</option>
+</select>
+
+<input className="inputDataFiltro" name="filtroData" id="inputDataFiltro"/>
+
+<div className="div-botones">
+  <button className="boton" onClick={this.filtrarTarjetas.bind(this)}>Filtrar</button>
+  <button className="boton-secundario boton"onClick={this.componentDidMount.bind(this)}>Reset</button>
+</div>
+</div>
+
+
+
+
         {/* <div >
       <div>Valor ingresado: {this.state.value}</div>
       <input onChange={(event) => this.setState({value: event.target.value})} > </input>
@@ -93,7 +185,9 @@ export default class App extends Component {
         width: this.state.widthsolo }} >
           
         {this.state.item.map((unPersonaje)=>{
-              return (<Tarjeta  id={this.props.id} onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={"28%"} />)
+              return (<Tarjeta nombre={unPersonaje.name.first} apellido={unPersonaje.name.last} mail={unPersonaje.email} 
+                fecha={unPersonaje.dob.date} edad={unPersonaje.dob.age} foto={unPersonaje.picture.large} 
+                id={unPersonaje.login.uuid} id={this.props.id} onDelete={this.borrarTarjeta.bind(this)} personaje = {unPersonaje} id={unPersonaje.login.uuid} key={unPersonaje.login.uuid} widthorigina={"28%"} />)
               }
             )}
         </div> 
@@ -107,7 +201,7 @@ export default class App extends Component {
     );
   }
 
-}
+}}
 
 
 
