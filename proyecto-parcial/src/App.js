@@ -16,8 +16,6 @@ export default class App extends Component {
       width: "100%",
       widthalt: "30%" ,
 
-      value: "",
-      copyValue: "",
 
       error: null,
       isLoaded: false,
@@ -63,11 +61,11 @@ export default class App extends Component {
         return item.name.first.includes(dataAfiltrar)
       })
       this.setState({item: resultado})
-    } else if (campoAfiltrar === "Sexo"){
+    } else if (campoAfiltrar === "Apellido"){
       let resultado = this.state.item.filter( (item) => {
-        return item.gender === dataAfiltrar
+        return item.name.last.includes(dataAfiltrar)
       })  
-      this.setState({items:resultado})
+      this.setState({item:resultado})
     }
   }
 
@@ -156,7 +154,7 @@ export default class App extends Component {
 <select className="select"   id="selectDataFiltro">
   <option>Nombre</option>
   <option>Edad</option>
-  <option>Sexo</option>
+  <option>Apellido</option>
   </select>
 
   <input class="primary ghost"className="inputDataFiltro" name="filtroData" id="inputDataFiltro"/>
